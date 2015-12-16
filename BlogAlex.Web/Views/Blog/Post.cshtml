@@ -1,0 +1,34 @@
+﻿@model BlogAlex.Web.Models.Blog.DetalhesPostViewModel
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/Views/Blog/Index.js")"></script>
+}
+
+<h2>@Model.Titulo</h2>
+
+<div class="cabecaçho-post">
+    <div class="icone-calendário div-imagem"></div>
+    @Model.DataPublicacao.ToString("dd/MM/yyyy HH:mm")
+    <div class="icone-autor div-imagem"></div>
+    @Model.Autor
+    <div class="icone-comentário div-imagem"></div>
+    @Html.ActionLink(Model.QtdeComentario.ToString(), "")
+    @if (Request.IsAuthenticated)
+    {
+    <div class="icone-excluir div-imagem"></div>
+    @Html.ActionLink("Excluir", "ExcluirPost", "Administracao", new { id = Model.Id }, new { @class = "excluir-post"})
+    }
+</div>
+<div class="descricao-post">
+    @Model.Descricao
+</div>
+<div class="tags-post">
+    <h3>Tags</h3>
+    @foreach (var item in Model.Tag)
+    {
+        <li>
+            @Html.ActionLink(item.Tag, "Index", "Blog", new { tag = item.Tag }, null)
+        </li>
+    }
+</div>
+

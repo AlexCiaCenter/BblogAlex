@@ -37,8 +37,8 @@ namespace BlogAlex.Web.Controllers
                 var conexao = new ConexaoBanco();
                 var usuario = new Usuario();
 
-                usuario.Login = viewmodel.Login.ToUpper();
-                usuario.Nome = viewmodel.Nome;
+                usuario.Login = viewmodel.Nome.ToUpper();
+                usuario.Nome = viewmodel.Login;
                 usuario.Senha = viewmodel.Senha;
 
                 conexao.Usuarios.Add(usuario);

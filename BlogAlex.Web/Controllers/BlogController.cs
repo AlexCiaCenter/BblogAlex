@@ -101,7 +101,7 @@ namespace BlogAlex.Web.Controllers
             return View(post);
         }
 
-        private void preencherViewModel(Post post, DetalhesPostViewModel viewModel, int? pagina)
+        private void preencherViewModel(Post post,  DetalhesPostViewModel viewModel, int? pagina)
         {
             viewModel.Id = post.Id;
             viewModel.Autor = post.Autor;
